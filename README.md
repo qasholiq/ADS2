@@ -1,70 +1,66 @@
-Overview
-This repository contains the implementation of various algorithms and data structures as part of the Algorithms and Data Structures course (Assignment 2). 
-The codebase demonstrates practical applications of fundamental data structures and algorithms in Java.
-Contents
-1. MyList Interface and Implementation
-A custom list interface with various implementations showcasing different approaches to list data structures:
+Algorithms and Data Structures - Assignment 2
+This project creates basic data storage tools from scratch in Java. These tools help store and organize data in different ways. 
+The project doesn't use Java's built-in collections (like ArrayList or LinkedList).
+Main Parts of the Project:
+Basic Storage Containers:
 
-MyArrayList: Implementation of a dynamic array-based list with automatic resizing capabilities.
-MyLinkedList: Implementation of a doubly linked list with efficient insertion and deletion operations.
+1.MyArrayList:
 
-2. MyHeap
-A binary heap implementation that provides efficient methods for priority-based operations:
+Stores items in a row, like boxes on a shelf
+Good for quickly grabbing any item if you know its position
+Easy to add items at the end, harder to add in the middle
 
-Supports min-heap and max-heap operations
-Includes methods for adding, removing, and accessing elements with O(log n) complexity
-Features heap balancing for maintaining the heap property
 
-3. MyHashTable
-A hash table implementation that handles key-value storage with efficient lookup:
+2.MyLinkedList:
 
-Utilizes a custom hashing function to distribute keys
-Implements collision resolution using separate chaining
-Provides methods for put, get, remove, contains, and size operations
-Includes automatic rehashing when the load factor exceeds a threshold
+Stores items as separate pieces connected by links
+Like a chain where each link points to the next one
+Easy to add or remove items anywhere in the list
 
-4. BSTNode and BinarySearchTree
-A binary search tree implementation for efficient searching, insertion, and deletion:
 
-BSTNode: Basic node structure for the binary search tree
-BinarySearchTree: Implementation supporting:
 
-Insertion while maintaining BST properties
-Searching for elements in O(log n) average time complexity
-In-order, pre-order, and post-order traversal
-Deletion with proper tree restructuring
+Tools built using these containers:
 
-5. Vertex and Graph Implementations
-A graph structure with supporting algorithms:
+1.MyStack:
 
-Vertex: Structure representing graph vertices with adjacency information
-WeightedGraph: Implementation of a weighted graph with:
+Works like a stack of plates - you can only take from the top
+Last item in is the first item out (LIFO)
+Uses MyArrayList because we only need fast access to the end
 
-Methods to add vertices and edges
-Breadth-First Search (BFS) algorithm
-Dijkstra's algorithm for finding shortest paths
-Depth-First Search (DFS) algorithm
 
-Usage Examples
-Examples of using the implementations:
-java// Using MyArrayList
-MyList<Integer> arrayList = new MyArrayList<>();
-arrayList.add(10);
-arrayList.add(20);
-System.out.println(arrayList.get(1)); // Output: 20
+2.MyQueue:
 
-// Using MyHashTable
-MyHashTable<String, Integer> hashTable = new MyHashTable<>();
-hashTable.put("apple", 5);
-hashTable.put("banana", 10);
-System.out.println(hashTable.get("apple")); // Output: 5
+Works like a line of people - first come, first served
+First item in is the first item out (FIFO)
+Uses MyLinkedList because we need good access to both ends
 
-// Using BinarySearchTree
-BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-bst.insert(50);
-bst.insert(30);
-bst.insert(70);
-System.out.println(bst.search(30)); // Output: true
-Implementation Details
-Each data structure is implemented with a focus on efficiency and proper object-oriented design principles. Time and space complexity considerations are taken into account for all operations, 
-aiming for optimal performance in practical scenarios.
+
+3.MyMinHeap:
+
+Always keeps the smallest item easily available
+Like a funnel that always drops the smallest item first
+Uses MyArrayList with special rules to maintain order
+
+
+
+Additional Advanced Data Structures:
+
+1.MyHashTable:
+
+Uses a special formula to decide where to store each item
+Works like a dictionary - you can look up items by their name (key)
+Very fast for finding, adding, or removing items
+
+
+2.BinarySearchTree:
+
+Organizes items in a tree where smaller values go left and larger values go right
+Like a family tree that makes it easy to find specific items
+Good for maintaining sorted data and quickly finding items
+
+
+3.WeightedGraph:
+
+Represents connections between items, like a map of cities
+Each connection has a weight (like distance or cost)
+Includes tools to find the shortest path between items
